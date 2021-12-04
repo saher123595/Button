@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/80bc8a1395.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+        }
+        /* sss */
+        
+        input[type="File"] {
+            display: none;
+        }
+        
+        label {
+            color: #FFF;
+            font-family: sans-serif;
+            font-size: 20px;
+            background: transparent;
+            border-radius: 5px;
+            text-transform: capitalize;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            overflow: hidden;
+            transition: .5s;
+            height: 55px;
+        }
+        
+        label div {
+            white-space: nowrap;
+            width: 100%;
+            position: relative;
+            transition: .5s;
+            left: 0;
+        }
+        
+        label:hover div {
+            left: -102%;
+            transition: .5s;
+        }
+        
+        label div span {
+            width: 100%;
+            display: inline-flex;
+            background: #C82586;
+            transition: .5s;
+            padding: 20px 10px;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
+        label div span:first-child p {
+            justify-content: flex-start;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        label div span:last-child {
+            font-size: 30px;
+            background-color: #291F71;
+            color: #FFF;
+        }
+        
+        label div span:last-child i {
+            position: relative;
+            top: -50%;
+            transform: translateY(20%);
+        }
+        /* sss */
+    </style>
+</head>
+
+<body>
+    <!-- sss -->
+    <form>
+        <input type="file" id="Upload">
+        <label for="Upload">
+            <div>
+                <span class="one"><p>Upload Sheet excel</p></span>
+                <span class="two"><i class="fa fa-cloud-upload-alt"></i></span>
+            </div>
+        </label>
+    </form>
+    <script>
+        let Upload = document.getElementById("Upload");
+        let one = document.querySelector(".one p");
+        Upload.onchange = function() {
+            one.innerHTML = Upload.value.split(/(\\|\/)/g).pop();
+        }
+    </script>
+    <!-- sss -->
+</body>
+
+</html>
